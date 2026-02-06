@@ -1,4 +1,25 @@
+import { useEffect } from "react";
+
 export default function Home() {
+  // Scroll indicator (chevron)
+  useEffect(() => {
+    const el = document.querySelector(".scroll-indicator");
+    if (!el) return;
+
+    const onClick = () => {
+      const target =
+        document.getElementById("portfolio") ||
+        document.getElementById("services");
+
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+      }
+    };
+
+    el.addEventListener("click", onClick);
+    return () => el.removeEventListener("click", onClick);
+  }, []);
+
   return (
     <>
       {/* Hero Section */}
@@ -91,8 +112,8 @@ export default function Home() {
               </div>
               <h3>Mode & Fashion</h3>
               <p>
-                Shootings mode créatifs avec direction artistique personnalisée et
-                style unique.
+                Shootings mode créatifs avec direction artistique personnalisée
+                et style unique.
               </p>
             </div>
 
@@ -101,7 +122,9 @@ export default function Home() {
                 <i className="fas fa-calendar-alt"></i>
               </div>
               <h3>Événementiel</h3>
-              <p>Couverture photo d'événements avec discrétion et professionnalisme.</p>
+              <p>
+                Couverture photo d'événements avec discrétion et professionnalisme.
+              </p>
             </div>
           </div>
         </div>
