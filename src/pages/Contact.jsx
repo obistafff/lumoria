@@ -4,7 +4,11 @@ function Notification({ message, type = "info", onClose }) {
   if (!message) return null;
 
   const icon =
-    type === "success" ? "check-circle" : type === "error" ? "exclamation-circle" : "info-circle";
+    type === "success"
+      ? "check-circle"
+      : type === "error"
+      ? "exclamation-circle"
+      : "info-circle";
 
   return (
     <div className={`notification notification-${type} show`}>
@@ -124,12 +128,6 @@ export default function Contact() {
                   d'événements, notre mission reste invariable : sublimer la réalité par la magie
                   de la photographie.
                 </p>
-
-                <blockquote className="philosophy-quote">
-                  <i className="fas fa-quote-left"></i>
-                  <p>"La lumière ne se contente pas d'éclairer, elle révèle l'âme de ce qu'elle touche."</p>
-                  <cite>— Philosophie Studio Lumoria</cite>
-                </blockquote>
               </div>
             </div>
 
@@ -137,6 +135,13 @@ export default function Contact() {
               <img src="/img/studio-about.jpg" alt="Studio Lumoria - À propos" />
               <div className="about-image-overlay"></div>
             </div>
+
+            {/* Déplacé ici pour être centré sous les 2 colonnes */}
+            <blockquote className="philosophy-quote">
+              <i className="fas fa-quote-left"></i>
+              <p>"La lumière ne se contente pas d'éclairer, elle révèle l'âme de ce qu'elle touche."</p>
+              <cite>— Philosophie Studio Lumoria</cite>
+            </blockquote>
           </div>
         </div>
       </section>
